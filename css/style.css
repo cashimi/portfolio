@@ -1,11 +1,8 @@
-/*
-CSS RESETS:
+/* CSS RESETS:
  Border box reset:
 https://www.paulirish.com/2012/box-sizing-border-box-ftw/
  62.5% Fix: https: //www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/
 */
-
-
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -24,6 +21,7 @@ html {
 html,
 body {
     height: 100%;
+    margin: 0;
 }
 
 
@@ -32,3 +30,29 @@ body {
     /* font-size 1.6rem is now the same as 16px */
     line-height: 1.6;
 }
+
+
+  body {
+    /* Swap this URL for any image you like */
+    background-image: url('../assets/bubback.png');
+    background-size: cover;         /* fill the viewport */
+    background-position: center;    /* keep it centered */
+    background-repeat: no-repeat;   /* don’t tile */
+    background-attachment: fixed;   /* optional: parallax-like stability */
+    display: grid;                  /* easy centering */
+    place-items: start center;      /* center horizontally, start vertically */
+    padding: 4vmin;                 /* room around the box on small screens */
+    font: 16px/1.5 system-ui, sans-serif;
+  }
+
+  /* The “box in the middle” */
+  .card {
+    width: min(68ch, 100%);         /* readable line length, responsive */
+    background: rgba(255,255,255,0.92); /* solid or translucent backdrop */
+    padding: clamp(16px, 3vmin, 32px);
+    border: 1px solid rgba(0,0,0,0.06); /* optional: subtle border */
+  }
+
+  .card h1, .card h2 { margin: 0.2em 0 0.4em }
+  .card a { color: #0645ad; text-decoration: underline }
+  .card ul { padding-left: 1.2em }
