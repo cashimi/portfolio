@@ -8,7 +8,6 @@ html {
     font-size: 62.5%;
 }
 
-
 *,
 *:before,
 *:after {
@@ -17,42 +16,197 @@ html {
     padding: 0;
 }
 
-
 html,
 body {
     height: 100%;
     margin: 0;
 }
 
-
 body {
     font-size: 1.6rem;
     /* font-size 1.6rem is now the same as 16px */
     line-height: 1.6;
 }
+/* end css reset */
+
+/* -------------------------------- GENERAL SET UP */
+
+/* responsive images */
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Basic Flex Setup
+------------------------------ */
+
+/* Flexbox creates sticky footer for the homepage, since the content does not fill the whole page. You could do the same for the resume page to be consistent */
+
+/* Basic styles for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #204b2a;
+  /* Green background */
+  color: #fff;
+}
+
+/* Logo styling */
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Navigation links styling */
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s, text-decoration 0.3s, background-color 0.3s;
+  padding: 5px 10px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e0e0e0;
+  /* Lighter color for active/hover */
+  background-color: #d574ca;
+  /* Darker green background on hover */
+  border-radius: 4px;
+  /* Optional: rounded corners */
+}
+
+body {
+  background-image: url("../assets/bubback.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex: 1 0 auto;
+  margin: 0 auto;
+
+  display: flex;
+  padding: 30px 10px;
+  max-width: 900px;
+  flex-direction: column;
+}
+
+header {
+  background-color: burlywood;
+}
+
+main {
+  padding: 5rem;
+  background: beige;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* delete gap if you would rather use margins */
+  gap: 20px;
+}
+
+section {
+  flex: 0 1 200px;
+  background-color: chartreuse;
+  padding: 2rem 1rem;
+  /* add margin if you don't want to use gap in flex container (main) */
+}
 
 
-  body {
-    /* Swap this URL for any image you like */
-    background-image: url('../assets/bubback.png');
-    background-size: cover;         /* fill the viewport */
-    background-position: center;    /* keep it centered */
-    background-repeat: no-repeat;   /* don’t tile */
-    background-attachment: fixed;   /* optional: parallax-like stability */
-    display: grid;                  /* easy centering */
-    place-items: start center;      /* center horizontally, start vertically */
-    padding: 4vmin;                 /* room around the box on small screens */
-    font: 16px/1.5 system-ui, sans-serif;
+/* media queries
+------------------------------ 
+
+customize these for your own breakpoints */
+
+/* this is mobile-first - meaning all the rest of the CSS is for mobile, and this CSS is specific to browser screens */
+@media screen and (max-width:650px) {
+
+  /* change padding for mobile */
+  .content-wrapper {
+      padding: 20px;
   }
 
-  /* The “box in the middle” */
-  .card {
-    width: min(68ch, 100%);         /* readable line length, responsive */
-    background: rgba(255,255,255,0.92); /* solid or translucent backdrop */
-    padding: clamp(16px, 3vmin, 32px);
-    border: 1px solid rgba(0,0,0,0.06); /* optional: subtle border */
+  main {
+      padding: 20px;
+  }
+  
+  /* to switch to grid for desktop: */
+  main {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+  }
+  
+  section {
+      flex: 0 1 auto;
   }
 
-  .card h1, .card h2 { margin: 0.2em 0 0.4em }
-  .card a { color: #0645ad; text-decoration: underline }
-  .card ul { padding-left: 1.2em }
+}
+
+
+
+
+
+/* FOOTER
+------------------------------ 
+
+sticky footer with flexbox
+breakpoints resize to mobile
+*/
+
+footer {
+  background: coral;
+  color: beige
+}
+
+.socials {
+  list-style-type: none;
+  padding: 0;
+}
+
+.socials li {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.socials img {
+  width: 32px;
+}
+
+.socials img:hover {
+  opacity: 0.5;
+}
+
+
+@media screen and (min-width: 860px) {
+  footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 859px) {
+  footer {
+      text-align: center;
+      padding: 10px;
+  }
+}
