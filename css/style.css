@@ -65,6 +65,8 @@ img {
 .nav-links {
   display: flex;
   list-style: none;
+  justify-content: flex-end;
+  flex: 1 0 auto;
 }
 
 .nav-links li {
@@ -90,9 +92,9 @@ img {
 }
 
 body {
-  background-image: url("../assets/bubback.png");
+  background-image: url("../assets/nyanAgain.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -104,7 +106,8 @@ body {
 
   display: flex;
   padding: 30px 10px;
-  max-width: 900px;
+  max-width: 90vw;
+  width: 70%;
   flex-direction: column;
 }
 
@@ -112,22 +115,71 @@ header {
   background-color: burlywood;
 }
 
+ul {
+  padding-left: 20px; /* or margin-left: 20px; */
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
 main {
   padding: 5rem;
   background: beige;
   display: flex;
+  gap: 20px;
+}
+.row {
+  flex: 1 0 auto;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* delete gap if you would rather use margins */
-  gap: 20px;
+}
+.column {
+  flex: 1 0 auto;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
+.titlebar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+
+
 section {
-  flex: 0 1 200px;
+  flex: 0 1 20vw;
   background-color: chartreuse;
-  padding: 2rem 1rem;
+  padding: 2rem 2rem;
   /* add margin if you don't want to use gap in flex container (main) */
+  gap: 20px;
+}
+.bio {
+  flex: 0 1 40vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #d574ca;
+}
+.projects {
+  display: grid;
+  background-color: #74c2d5;
+}
+.resume {
+  display: grid;
+  background-color: #e0e0e0;
+}
+.project-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.project-left,
+.project-right {
+  flex: 1;
+  background-color: #8bc293;
+  padding: 20px;
+  border: 1px solid rgb(21, 18, 193);
 }
 
 
